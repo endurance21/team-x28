@@ -1,14 +1,6 @@
 import React, { Component } from 'react';
 
 class Card extends Component {
-
-
-    // defineColor(){
-      
-    //     let classes = this.props.index%2 ===0 ?'card text-white bg-primary mb-3':'card text-white bg-dark mb-3';
-    //     return classes;
-        
-    // }
     render() { 
         return (
        
