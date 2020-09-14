@@ -17,17 +17,22 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
-import { Typography, Avatar } from '@material-ui/core';
+import { Typography, Avatar, SvgIcon } from '@material-ui/core';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import StoreIcon from '@material-ui/icons/Store';
 import SlideshowIcon from '@material-ui/icons/Slideshow';
+import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
+import InsertChartIcon from '@material-ui/icons/InsertChart';
+import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 import {
   deepOrange,
   deepPurple
 } from '@material-ui/core/colors';
 import './index.scss'
 import { NavLink } from 'react-router-dom';
+import Bacteria from '../../assests/bacteria.svg';
+import CoronaVirus from '../../assests/coronavirus.svg';
 var drawerWidth = 240;
 const useStyles = makeStyles((theme) => {
   console.log('props is');
@@ -161,7 +166,9 @@ export default function SideNav(props) {
           }
         } >
           <div className={classes.logo}>
-            <Typography variant="h6" >Covid19.info</Typography>
+            <img alt={"bacteria"} src={CoronaVirus} width="80" height="80">
+            </img>
+            <Typography style={{}} >Covid19</Typography>
             {/* <IconButton>
               <
             </IconButton> */}
@@ -208,7 +215,7 @@ export default function SideNav(props) {
                     {
                       minWidth:'40px'
                     }
-                  } > < ShoppingCartIcon style = {
+                  } > < LocalHospitalIcon style = {
                     {
                       color: '#fff'
                     }
@@ -231,7 +238,7 @@ export default function SideNav(props) {
                     {
                       minWidth:'40px'
                     }
-                  } > < StoreIcon style = {
+                  } > < InsertChartIcon style = {
                     {
                       color: '#fff'
                     }
@@ -255,7 +262,7 @@ export default function SideNav(props) {
                     {
                       minWidth:'40px'
                     }
-                  } > < SlideshowIcon style = {
+                  } > < NotificationsActiveIcon style = {
                     {
                       color: '#fff'
                     }

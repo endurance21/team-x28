@@ -15,15 +15,9 @@ export default function Header(props) {
   const togleDrawer = props.togleDrawer;
   const open= props.open;
   return (
-    < div className = {
-      classes.grow
-    }
-  
-    >
-      < AppBar 
-      position = "static" >
-        <Toolbar>
-          {
+    <div style={{width:'100%',display: 'flex', paddingLeft:'20px',paddingTop: '10px',marginBottom:'50px'}} >
+        <div style={{}}>
+        {
             isMobile ? < IconButton onClick = {
               () => {
                 console.log('clicked')
@@ -32,8 +26,27 @@ export default function Header(props) {
             } >
             <MenuIcon  />
           </IconButton>:''}
-        </Toolbar>
-      </AppBar>
+        </div>
+        < div style = {
+          {
+            fontSize: '30px',
+            fontWeight: 900,
+            color: '#6236ff',
+            fontFamily: '"Arial Black", Gadget, sans-serif'
+          }
+        } >
+            Covid-19 Tracker 
+            < span style = {
+              {
+                marginLeft: '15px',
+                color: '#251C56',
+                fontSize:'25px',
+                
+              }
+            } >
+                Summary
+            </span>
+        </div>
     </div>
   );
 }
