@@ -13,6 +13,11 @@ import MenuItem from '@material-ui/core/MenuItem';
 import SearchIcon from "@material-ui/icons/Search";
 import InputBase from "@material-ui/core/InputBase";
 import IconButton from "@material-ui/core/IconButton";
+import InputLabel from '@material-ui/core/InputLabel';
+// import MenuItem from '@material-ui/core/MenuItem';
+// import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 import "./index.scss";
 import Axios from "axios";
 const StyledTableCell = withStyles((theme) => ({
@@ -28,6 +33,7 @@ const StyledTableRow = withStyles((theme) => ({
   root: {
     "&:nth-of-type(odd)": {
       backgroundColor: theme.palette.action.hover,
+      // height:30
     },
   },
 }))(TableRow);
@@ -36,7 +42,7 @@ const useStyles = makeStyles((theme)=>({
     minWidth: 700,
     // height: 700,
     overflow: "auto",
-    height: '90%'
+    // height: '90%'
   },
   root: {
       padding: "2px 4px",
@@ -92,8 +98,8 @@ const useStyles = makeStyles((theme)=>({
 export default function Hospital() {
   const [dataList, setDataList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
-  const [selectedState,setSelectedState] = useState('all');
-  const [selectedType,setSelectedType] = useState('all');
+  const [selectedState,setSelectedState] = useState('');
+  const [selectedType,setSelectedType] = useState('');
 
   const [states,setStates] = useState([]);
   const [selectedStatesList,setSelectedStatesList] = useState([]);
@@ -107,7 +113,7 @@ export default function Hospital() {
     setSelectedStatesList([...res]);
   };
   const match = (state, val) => {
-    if (val.length) {
+    if (val && val.length && state && state.length) {
       state = state.toUpperCase();
       val = val.toUpperCase();
       for (let i = 0; i <= state.length - val.length; i++) {
@@ -133,9 +139,10 @@ export default function Hospital() {
       console.log(data);
       let t1=new Set();
       let t2= new Set();
-      data.forEach(item=>{
+      data.forEach((item,index)=>{
         t1.add(item.state);
         t2.add(item.ownership);
+        item.key=index;
       })
       t1 = Array.from(t1);
       t2 = Array.from(t2);
@@ -176,7 +183,7 @@ export default function Hospital() {
       
       <div className="form">
         <Grid container style={{padding:'20px'}}>
-          <Grid item container justify="center" xs={12} md={6} style={{paddingLeft:'50px',paddingRight:'50px'}}>
+          <Grid item direction='column' alignItems='center' container justify="center" xs={12} md={6} style={{paddingLeft:'50px',paddingRight:'50px'}}>
             < Paper component = "form"
             className = {
               classes.root
@@ -207,9 +214,12 @@ export default function Hospital() {
                           }
                           onClick = { 
                             () => {
-                              console.log("clicked");
+                              console.log("clicked",item);
                               handleClose();
                               setSelectedState(item);
+                              let temp = dataList.filter((data) => match(data.state,item) && match(data.ownership,selectedType));
+                              setFilteredList(temp);
+                              console.log('temp ',temp);
                             }
                           } 
                           key={item}
@@ -219,9 +229,34 @@ export default function Hospital() {
                   }
               </Paper>
             </Paper>
+                <h3>{selectedState}</h3>
           </Grid>
           <Grid item container justify="center" xs={12} md={6}>
-
+                <FormControl variant="outlined" className={classes.formControl}>
+                  <InputLabel id="demo-simple-select-outlined-label">Type</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-outlined-label"
+                    id="demo-simple-select-outlined"
+                    value={selectedType}
+                    onChange={(e)=>{
+                      setSelectedType(e.target.value)
+                      let item = e.target.value;
+                      let temp = dataList.filter((data) => match(data.state, selectedState) && match(data.ownership, item));
+                      setFilteredList(temp);
+                      console.log('temp ', temp);
+                    }}
+                    label="Type"
+                  >
+                  <MenuItem value="">
+                    <em>All</em>
+                  </MenuItem>
+                  {
+                    types.map(type=>(<MenuItem key={type} value={type}>
+                      {type}
+                    </MenuItem>))
+                  }
+                </Select>
+              </FormControl>
           </Grid>
         </Grid>
         < Divider / >
@@ -232,9 +267,9 @@ export default function Hospital() {
           <Table className={classes.table} aria-label="customized table">
             <TableHead>
               <TableRow>
-                {/* <StyledTableCell>Dessert (100g serving)</StyledTableCell> */}
-                <StyledTableCell align="right">State</StyledTableCell>
-                <StyledTableCell align="right">Name</StyledTableCell>
+                
+                <StyledTableCell  align="right">State</StyledTableCell>
+                <StyledTableCell  align="right">Name</StyledTableCell>
                 <StyledTableCell align="right">City</StyledTableCell>
                 <StyledTableCell align="right">Ownership</StyledTableCell>
                 <StyledTableCell align="right">
@@ -243,9 +278,9 @@ export default function Hospital() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {filteredList.map((item) => (
-                <StyledTableRow key={item.name}>
-                  <StyledTableCell component="th" scope="row">
+              {filteredList.map((item) =>(
+                <StyledTableRow   key={item.key}>
+                  <StyledTableCell   component="th" scope="row">
                     {item.state}
                   </StyledTableCell>
                   <StyledTableCell align="right">{item.name}</StyledTableCell>
