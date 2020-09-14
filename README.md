@@ -1,21 +1,26 @@
-## FLIPPR 6.0 submission  | TEAM-x28 
+## FLIPPR 6.0 submission   {  12-09-2020   to   14-09-2020  }     |       TEAM-x28  
 
 ## This web app is hosted on  - 
 
 
 ## steps to build and run locally 
-  `
-   npm install 
-   
-  `
   
-  `
-  npm start 
+    
+   1.  clone and move to the project directory 
+   
+   2. npm install 
+   
+   3. npm start 
+   
+   *with an active internet connection :)
+  
+   
+   cheers! :)
+   
+ 
+  
  
 
-`
-
-and a active internet connection :)
 
 ### Tech Stack Used 
 
@@ -29,6 +34,10 @@ and a active internet connection :)
   
   
   
-## 
+## TEAM 
+
+ AJAY MATI |   DIVYANSHU RAJ  | PRAGYA JILOWA 
+  
+  
   
 
