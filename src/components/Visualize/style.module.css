@@ -1,0 +1,75 @@
+.controls{
+    padding:5px;
+    display: flex ;
+    justify-content: space-between;
+    /* border:2px solid red; */
+    box-sizing: border-box;
+}
+
+/* .controls :nth-child(){
+    margin:20px;
+} */
+.chart{
+    /* border:2px solid red; */
+}
+
+.chart_wrapper{
+    /* display: flex;
+    justify-content: center;
+    align-items:center; */
+}
+.calender{
+    /* border:2px solid red; */
+    /* margin-top:30px; */
+
+    position:  relative !important;
+   
+     display: flex ;
+     flex-direction: row-reverse;
+     height: 100%;
+     margin-left:37px;
+    margin-right: 20px;
+}
+
+.dropdowns{
+    /* border:2px solid red; */
+    flex:4;
+    display:flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+@media only screen and (max-width: 600px) {
+    .controls{
+        width: 100%;
+        padding:5px;
+        display: flex ;
+        justify-content: space-between;
+        /* border:2px solid red; */
+        flex-direction: column-reverse;
+        /* align-items: center; */
+       
+    }
+
+    .calender{
+        /* border:2px solid red; */
+    
+        position:  relative !important;
+       
+         display: flex ;
+         flex-direction: row-reverse;
+         height: 100%;
+         /* margin-left:37px; */
+         flex:2
+    
+    }
+    .dropdowns{
+        /* border:2px solid red; */
+        flex:5;
+        
+        display:flex;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+    
+  }
