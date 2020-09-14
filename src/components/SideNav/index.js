@@ -160,16 +160,16 @@ export default function SideNav(props) {
             height:'100%'
           }
         } >
-                    <div className={classes.logo}>
-            <Typography variant="h6" >Tvish.com</Typography>
+          <div className={classes.logo}>
+            <Typography variant="h6" >Covid19.info</Typography>
             {/* <IconButton>
               <
             </IconButton> */}
           </div>
-          <div className={classes.userinfo}>
+          {/* <div className={classes.userinfo}>
             <Avatar className={classes.purple}>A</Avatar>
             <Typography className={classes.email}>ajaymati@gmail.com</Typography>
-          </div>
+          </div> */}
           <List className={classes.list}>
             < NavLink className = {
               classes.navItem
@@ -191,7 +191,7 @@ export default function SideNav(props) {
                   }
                   /> 
                   </ListItemIcon >
-                  < ListItemText primary = 'DashBoard' / >
+                  < ListItemText primary = 'Home' / >
               </ListItem>
               </NavLink>
             < NavLink className = {
@@ -215,7 +215,7 @@ export default function SideNav(props) {
                   }
                   /> 
                   </ListItemIcon >
-                  < ListItemText primary = 'Orders' / >
+                  < ListItemText primary = 'Hospitals' / >
               </ListItem>
               </NavLink>
                           < NavLink className = {
@@ -238,7 +238,7 @@ export default function SideNav(props) {
                   }
                   /> 
                   </ListItemIcon >
-                  < ListItemText primary = 'Inventory' / >
+                  < ListItemText primary = 'Visualization' / >
               </ListItem>
               </NavLink>
              < NavLink className = {
@@ -262,7 +262,7 @@ export default function SideNav(props) {
                   }
                   /> 
                   </ListItemIcon >
-                  < ListItemText primary = 'Advertisement' / >
+                  < ListItemText primary = 'Notifications' / >
               </ListItem>
               </NavLink>
           </List>
