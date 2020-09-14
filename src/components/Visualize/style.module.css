@@ -5,6 +5,17 @@
     /* border:2px solid red; */
     box-sizing: border-box;
 }
+.buton_wrapper{
+    /* border:2px solid red; */
+    display:flex ;
+    justify-content: center;
+    align-items: center;
+}
+.download{
+    /* width: 10% !important; */
+    margin-left:5px;
+
+}
 
 /* .controls :nth-child(){
     margin:20px;
@@ -40,6 +51,17 @@
 }
 
 @media only screen and (max-width: 600px) {
+
+    .buton_wrapper{
+        /* border:2px solid red; */
+        width: 100vw;
+
+        display:flex ;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        margin-top:20px
+    }
     .controls{
         width: 100%;
         padding:5px;
@@ -57,9 +79,11 @@
         position:  relative !important;
        
          display: flex ;
-         flex-direction: row-reverse;
+         /* flex-direction: row-reverse; */
+         align-items: center;
+        justify-content: center;
          height: 100%;
-         /* margin-left:37px; */
+         margin-bottom: 20px;
          flex:2
     
     }

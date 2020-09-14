@@ -40,3 +40,20 @@
   }
 }
 
+*{
+  box-sizing: border-box;
+}
+
+
+.notification {
+  width: 94% !important;
+  margin : 3px auto !important ;
+}
+
+.toast {
+  max-width: 100% !important;
+}
+
+.mr-auto {
+  margin: 0 auto !important;
+}

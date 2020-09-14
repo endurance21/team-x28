@@ -10,7 +10,7 @@ import Home from './Home'
 import Hospital from './Hospital'
 import Visualize from './Visualize'
 import Header from './Header'
-import Notification from './Notification'
+import Notification from './notification'
 import {
   useTheme
 } from '@material-ui/core/styles';
