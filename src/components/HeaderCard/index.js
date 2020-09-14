@@ -42,7 +42,7 @@ function HeaderCard() {
             value={7390}
             subtitle={"new confirmed"}
             subvalue={123}
-            color={"#fa6400"}
+            color={"#fa640099"}
           />
         </div>
         <div className={matches ? classes.card1 : classes.card2}>
@@ -57,9 +57,9 @@ function HeaderCard() {
         <div className={matches ? classes.card1 : classes.card2}>
           <SummaryCard
             title={"Death"}
-            value={7}
+            value={123}
             subtitle={"new death"}
-            subvalue={1}
+            subvalue={23}
             color={"#f9345e"}
           />
         </div>
