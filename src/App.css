@@ -57,3 +57,11 @@
 .mr-auto {
   margin: 0 auto !important;
 }
+
+a{
+  text-decoration: none !important;
+}
+
+a:hover {
+  color:white !important
+}
