@@ -186,7 +186,11 @@ export default function SideNav(props) {
             activeClassName={classes.selected} >
               <ListItem className = {
               classes.listItem
-            } >
+            }
+            onClick = {
+              () => togleDrawer(false)
+            }
+             >
                     < ListItemIcon style = {
                     {
                       minWidth:'40px'
@@ -201,7 +205,35 @@ export default function SideNav(props) {
                   < ListItemText primary = 'Home' / >
               </ListItem>
               </NavLink>
-            < NavLink className = {
+            
+                          < NavLink className = {
+              classes.navItem
+            }
+            to = '/visualize'
+            key = '3'
+            activeClassName={classes.selected} >
+              <ListItem className = {
+              classes.listItem
+            }
+            onClick = {
+              () => togleDrawer(false)
+            }
+            >
+                    < ListItemIcon style = {
+                    {
+                      minWidth:'40px'
+                    }
+                  } > < InsertChartIcon style = {
+                    {
+                      color: '#fff'
+                    }
+                  }
+                  /> 
+                  </ListItemIcon >
+                  < ListItemText primary = 'Visualization' / >
+              </ListItem>
+              </NavLink>
+              < NavLink className = {
               classes.navItem
             }
             to = '/hospital'
@@ -209,7 +241,11 @@ export default function SideNav(props) {
             activeClassName={classes.selected} >
               <ListItem className = {
               classes.listItem
-            } >
+            }
+            onClick = {
+              () => togleDrawer(false)
+            }
+             >
                 
                     < ListItemIcon style = {
                     {
@@ -225,29 +261,6 @@ export default function SideNav(props) {
                   < ListItemText primary = 'Hospitals' / >
               </ListItem>
               </NavLink>
-                          < NavLink className = {
-              classes.navItem
-            }
-            to = '/visualize'
-            key = '3'
-            activeClassName={classes.selected} >
-              <ListItem className = {
-              classes.listItem
-            } >
-                    < ListItemIcon style = {
-                    {
-                      minWidth:'40px'
-                    }
-                  } > < InsertChartIcon style = {
-                    {
-                      color: '#fff'
-                    }
-                  }
-                  /> 
-                  </ListItemIcon >
-                  < ListItemText primary = 'Visualization' / >
-              </ListItem>
-              </NavLink>
              < NavLink className = {
               classes.navItem
             }
@@ -256,7 +269,11 @@ export default function SideNav(props) {
             activeClassName={classes.selected} >
               <ListItem className = {
               classes.listItem
-            } >
+            } 
+            onClick = {
+              () => togleDrawer(false)
+            }
+            >
                 
                     < ListItemIcon style = {
                     {
