@@ -1,14 +1,26 @@
 import { Paper,Grid } from '@material-ui/core';
 import React from 'react';
+import CallIcon from '@material-ui/icons/Call';
 import './index.scss';
-export default function StateCardNew() {
+export default function StateCardNew(props) {
+    console.log(props);
   return (
     <>
-        <Paper elevation={2} style={{padding:'20px',width: '500px'}}>
+        < Paper elevation = {
+            2
+        }
+        style = {
+            {
+                padding: '20px',
+                width: '90%',
+                borderRadius: '10px',
+                backgroundColor: '#EDEFFD55'
+            }
+        } >
             <Grid container justify="center" alignItems="center" direction="row" spacing={2}>
                 <Grid item xs={12} >
                     <span className="state-name">
-                        Arunachal Pradesh
+                        {props.state}
                     </span>
                 </Grid>
                 <Grid container spacing item xs={12}>
@@ -16,20 +28,20 @@ export default function StateCardNew() {
                         <Grid container justify="center" item xs={12} md={6}>
                             
                                 <span className="title">
-                                Rural Hospital
+                                Rural Hospitals :
                                 </span>
                                 < span className = "value" >
-                                    56
+                                    {props.ruralHospitals}
                                 </span>
                             
                         </Grid>
                         <Grid container justify="center" item xs={12} md={6}>
                            
                                 <span className="title">
-                                Rural Hospital
+                                Rural Beds :
                                 </span>
                                 < span className = "value" >
-                                    56
+                                    {props.ruralBeds}
                                 </span>
                             
                         </Grid>
@@ -38,20 +50,20 @@ export default function StateCardNew() {
                         <Grid container justify="center" item xs={12} md={6}>
                             
                                 <span className="title">
-                                Rural Hospital
+                                Urban Hospital :
                                 </span>
                                 < span className = "value" >
-                                    56
+                                    {props.urbanHospitals}
                                 </span>
                            
                         </Grid>
                         <Grid container justify="center" item xs={12} md={6}>
                             
                                 <span className="title">
-                                Rural Hospital
+                                Urban Beds :
                                 </span>
                                 < span className = "value" >
-                                    56
+                                    {props.urbanBeds}
                                 </span>
                             
                         </Grid>
@@ -60,31 +72,35 @@ export default function StateCardNew() {
                         <Grid container justify="center" item xs={12} md={6}>
                             
                                 <span className="title">
-                                Rural Hospital
+                                Total Hospital :
                                 </span>
                                 < span className = "value" >
-                                    56
+                                    {props.totalHospitals}
                                 </span>
                             
                         </Grid>
                         <Grid container justify="center" item xs={12} md={6}>
                             
                                 <span className="title">
-                                Rural Hospital
+                                Total Beds :
                                 </span>
                                 < span className = "value" >
-                                    56
+                                    {props.totalBeds}
                                 </span>
                             
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid container justify="center" item xs={12}>
+                <Grid container direction='row' justify="center" item xs={12}>
                     <span className="helpline-title">
-                        Helpline Number
+                            Helpline Number : &nbsp;
                     </span>
+                    
                     <a className = "helpline-value"
-                    href = "tel:123-456-7890" > 123 - 456 - 7890 </a>
+                    href = {`tel:${props.number}`} >
+                         < CallIcon className = 'helpline-icon' / >
+                         < span className='phone'> {props.number} </span>
+                     </a >
                 </Grid>
             </Grid>
         </Paper>

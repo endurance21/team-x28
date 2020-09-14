@@ -5,6 +5,7 @@ import {
   Route,
   Redirect
 } from 'react-router-dom'
+
 import Home from './Home'
 import Hospital from './Hospital'
 import Visualize from './Visualize'
@@ -13,7 +14,7 @@ import Notification from './Notification'
 import {
   useTheme
 } from '@material-ui/core/styles';
-import { useMediaQuery } from '@material-ui/core'
+import { Grid, useMediaQuery } from '@material-ui/core'
 var drawerWidth = 240;
 var appBarWidth = 50;
 export default function Router (props) {
@@ -32,14 +33,39 @@ export default function Router (props) {
       console.log('useeffect called');
       setIsOpen(!isMobile);
     }, [isMobile])
-
+// 
     return (
       <HashRouter>
-      <div className="root">
-        <SideNav  isMobile={isMobile} open={isOpen} togleDrawer={togleDrawer} />
-        <main style={{marginLeft:`${(!isMobile)?drawerWidth:0}px`}}>
+        {/* <Grid */}
+      < div style = {
+        {
+          backgroundColor: '#F9FCFF',
+        }
+        
+      } 
+      >
+        <div >
+          < SideNav isMobile = {
+              isMobile
+            }
+            open = {
+              isOpen
+            }
+            togleDrawer = {
+              togleDrawer
+            }
+            />
+
+        </div>
+        
+        < main style = {
+          {
+            marginLeft: `${(!isMobile)?drawerWidth:0}px`,
+            minHeight:'100vh'
+          }
+        } >
                 <Header isMobile={isMobile} open={isOpen} togleDrawer={togleDrawer} />
-            <section style={{zIndex:'-1'}}>
+            <section >
                 <Switch>
                     <Route path='/home' component={Home} />
                     <Route path='/hospital' component={Hospital} />
@@ -49,6 +75,8 @@ export default function Router (props) {
                 </Switch>
             </section>
         </main>
+        
+    
       </div>
       </HashRouter>
     )

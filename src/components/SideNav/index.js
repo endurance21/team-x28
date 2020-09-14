@@ -17,17 +17,22 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
-import { Typography, Avatar } from '@material-ui/core';
+import { Typography, Avatar, SvgIcon } from '@material-ui/core';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import StoreIcon from '@material-ui/icons/Store';
 import SlideshowIcon from '@material-ui/icons/Slideshow';
+import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
+import InsertChartIcon from '@material-ui/icons/InsertChart';
+import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 import {
   deepOrange,
   deepPurple
 } from '@material-ui/core/colors';
 import './index.scss'
 import { NavLink } from 'react-router-dom';
+import Bacteria from '../../assests/bacteria.svg';
+import CoronaVirus from '../../assests/coronavirus.svg';
 var drawerWidth = 240;
 const useStyles = makeStyles((theme) => {
   console.log('props is');
@@ -160,16 +165,18 @@ export default function SideNav(props) {
             height:'100%'
           }
         } >
-                    <div className={classes.logo}>
-            <Typography variant="h6" >Tvish.com</Typography>
+          <div className={classes.logo}>
+            <img alt={"bacteria"} src={CoronaVirus} width="80" height="80">
+            </img>
+            <Typography style={{}} >Covid19</Typography>
             {/* <IconButton>
               <
             </IconButton> */}
           </div>
-          <div className={classes.userinfo}>
+          {/* <div className={classes.userinfo}>
             <Avatar className={classes.purple}>A</Avatar>
             <Typography className={classes.email}>ajaymati@gmail.com</Typography>
-          </div>
+          </div> */}
           <List className={classes.list}>
             < NavLink className = {
               classes.navItem
@@ -191,7 +198,7 @@ export default function SideNav(props) {
                   }
                   /> 
                   </ListItemIcon >
-                  < ListItemText primary = 'DashBoard' / >
+                  < ListItemText primary = 'Home' / >
               </ListItem>
               </NavLink>
             < NavLink className = {
@@ -208,14 +215,14 @@ export default function SideNav(props) {
                     {
                       minWidth:'40px'
                     }
-                  } > < ShoppingCartIcon style = {
+                  } > < LocalHospitalIcon style = {
                     {
                       color: '#fff'
                     }
                   }
                   /> 
                   </ListItemIcon >
-                  < ListItemText primary = 'Orders' / >
+                  < ListItemText primary = 'Hospitals' / >
               </ListItem>
               </NavLink>
                           < NavLink className = {
@@ -231,14 +238,14 @@ export default function SideNav(props) {
                     {
                       minWidth:'40px'
                     }
-                  } > < StoreIcon style = {
+                  } > < InsertChartIcon style = {
                     {
                       color: '#fff'
                     }
                   }
                   /> 
                   </ListItemIcon >
-                  < ListItemText primary = 'Inventory' / >
+                  < ListItemText primary = 'Visualization' / >
               </ListItem>
               </NavLink>
              < NavLink className = {
@@ -255,14 +262,14 @@ export default function SideNav(props) {
                     {
                       minWidth:'40px'
                     }
-                  } > < SlideshowIcon style = {
+                  } > < NotificationsActiveIcon style = {
                     {
                       color: '#fff'
                     }
                   }
                   /> 
                   </ListItemIcon >
-                  < ListItemText primary = 'Advertisement' / >
+                  < ListItemText primary = 'Notifications' / >
               </ListItem>
               </NavLink>
           </List>
