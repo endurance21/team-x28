@@ -1,0 +1,40 @@
+.state-name {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #3C3366;
+}
+
+.helpline-title {
+    font-size: 25px;
+    font-weight: 900;
+    color: #00000055;
+
+
+}
+
+.helpline-value {
+    text-decoration: none;
+    font-size: 20px;
+    color: #359e7fbd;
+    font-weight: 700;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    margin-right: 8px;
+}
+
+.helpline-icon {
+    font-size: 27px;
+    margin-right: 8px;
+}
+
+.title {
+    font-size: 17px;
+    // font-weight: 900;
+}
+
+.value {
+    font-size: 17px;
+    // font-weight: 600;
+    margin-left: 7px;
+}

@@ -2,6 +2,9 @@
   text-align: center;
 }
 
+
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +38,30 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+*{
+  box-sizing: border-box;
+}
+
+
+.notification {
+  width: 94% !important;
+  margin : 3px auto !important ;
+}
+
+.toast {
+  max-width: 100% !important;
+}
+
+.mr-auto {
+  margin: 0 auto !important;
+}
+
+a{
+  text-decoration: none !important;
+}
+
+a:hover {
+  color:white !important
 }

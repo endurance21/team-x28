@@ -1,26 +1,13 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Card from './components/notification/notifications'
-import Notification from './components/notification/index'
-import { Component } from 'react';
+import React, { useEffect, useState } from "react";
+import Router from "./components";
+import HeaderCard from "./components/HeaderCard";
+import StateCardNew from "./components/StateCardNew";
+import StateSelect from "./components/StateSelect";
 
-class App extends Component {
-  state = { 
-    titleDate : [{
-        title : 'title1',
-        date : 'date1',
-        link: 'link'
-    },
-
-]}
-
-  render() { 
-    return ( 
-      <Notification>
-      </Notification>     
-     );
-  }
+export default function App() {
+  return (
+    <>
+      <Router />
+    </>
+  );
 }
- 
-export default App;
