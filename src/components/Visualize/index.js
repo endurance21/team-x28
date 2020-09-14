@@ -24,6 +24,40 @@ let url  = "http://localhost:5000/api/patients"
 
 
 
+const states = [
+  'india',
+  'Delhi',
+  'Uttar Pradesh',
+  'Kerala',
+  'Rajasthan',
+  'Ladakh',
+  'Maharashtra',
+  'Telangana',
+  'West Bengal',
+  'Odisha',
+  'Karnataka',
+  'Punjab',
+  'Tamil Nadu',
+  'Andhra Pradesh',
+  'Gujarat',
+  'Haryana',
+  'Himachal Pradesh',
+  'Madhya Pradesh',
+  'Bihar',
+  'Uttarakhand',
+  'Goa',
+  'Andaman and Nicobar Islands',
+  'Jammu and Kashmir',
+  'Chandigarh',
+  'Mizoram',
+  'Chhattisgarh',
+  'Assam',
+  'Puducherry',
+  'Tripura',
+  'Meghalaya',
+  'Jharkhand',
+  'Manipur'
+]
 
 
 
@@ -72,7 +106,7 @@ fetchData = ()=>{
   let payload = this.state.parameters
   console.log(payload.state)
 
-  axios.post(url , payload).then((res)=>{
+  axios.post(fetchURL , payload).then((res)=>{
     
 console.log(res.data)
   this.setState({data:res.data} , ()=>{
@@ -82,7 +116,7 @@ console.log(res.data)
 
 }
 componentDidMount(){
- 
+
  let elem = document.querySelector('.daterangepicker ');
  elem.style.position = "static";
  elem.style.width= "max-content";
@@ -102,6 +136,7 @@ handleOnclick = (event)=>{
 
  let value = event.target.innerText
  if(value!='States'){
+   console.log(value)
   let parameters = {...this.state.parameters} ;
   parameters.state = value;
   this.setState({parameters:parameters} , ()=>{
@@ -197,12 +232,14 @@ console.log(s1,s2)
         States
       </DropdownToggle>
       <DropdownMenu>
-      <DropdownItem > india</DropdownItem>
-        <DropdownItem >Delhi</DropdownItem>
-        <DropdownItem >Bihar</DropdownItem>
-        <DropdownItem>Uttar pradesh</DropdownItem>
-        {/* <DropdownItem divider /> */}
-        {/* <DropdownItem>Another Action</DropdownItem> */}
+          {
+            states.map((item , index) =>{
+              return (  <DropdownItem >{item}</DropdownItem>)
+            })
+          }
+     
+       
+      
       </DropdownMenu>
     </ButtonDropdown>
 
