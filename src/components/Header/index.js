@@ -44,7 +44,7 @@ export default function Header(props) {
                 
               }
             } >
-                Summary
+                Info
             </span>
         </div>
     </div>
