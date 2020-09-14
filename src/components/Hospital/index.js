@@ -13,6 +13,11 @@ import MenuItem from '@material-ui/core/MenuItem';
 import SearchIcon from "@material-ui/icons/Search";
 import InputBase from "@material-ui/core/InputBase";
 import IconButton from "@material-ui/core/IconButton";
+import InputLabel from '@material-ui/core/InputLabel';
+// import MenuItem from '@material-ui/core/MenuItem';
+// import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 import "./index.scss";
 import Axios from "axios";
 const StyledTableCell = withStyles((theme) => ({
@@ -108,7 +113,7 @@ export default function Hospital() {
     setSelectedStatesList([...res]);
   };
   const match = (state, val) => {
-    if (val.length) {
+    if (val && val.length && state && state.length) {
       state = state.toUpperCase();
       val = val.toUpperCase();
       for (let i = 0; i <= state.length - val.length; i++) {
@@ -227,7 +232,31 @@ export default function Hospital() {
                 <h3>{selectedState}</h3>
           </Grid>
           <Grid item container justify="center" xs={12} md={6}>
-
+                <FormControl variant="outlined" className={classes.formControl}>
+                  <InputLabel id="demo-simple-select-outlined-label">Type</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-outlined-label"
+                    id="demo-simple-select-outlined"
+                    value={selectedType}
+                    onChange={(e)=>{
+                      setSelectedType(e.target.value)
+                      let item = e.target.value;
+                      let temp = dataList.filter((data) => match(data.state, selectedState) && match(data.ownership, item));
+                      setFilteredList(temp);
+                      console.log('temp ', temp);
+                    }}
+                    label="Type"
+                  >
+                  <MenuItem value="">
+                    <em>All</em>
+                  </MenuItem>
+                  {
+                    types.map(type=>(<MenuItem key={type} value={type}>
+                      {type}
+                    </MenuItem>))
+                  }
+                </Select>
+              </FormControl>
           </Grid>
         </Grid>
         < Divider / >
